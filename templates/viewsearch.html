@@ -1,0 +1,95 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block content%}
+
+<head>
+    <style>
+        span {
+            text-indent: 4em;
+        }
+    </style>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+
+
+<!--
+    <table class="table table-striped table--bordered table-sm mt-3">
+        <thead class="thead-dark">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Id</th>
+               
+                <th>Mobile Number</th>
+                <th>Gender</th>
+                <th>City</th>
+                <th>Type</th>
+                
+            </tr>
+        </thead>
+
+        {% for worker in formdata %}
+            <tr>
+                <td>{{worker.First_Name}}</td>
+                <td>{{worker.Last_Name}}</td>
+                <td>{{worker.Email}}</td>
+    
+                <td>{{worker.Mobile}}</td>
+                <td>{{worker.Gender}}</td>
+                <td>{{worker.City}}</td>
+                <td>{{worker.Worker_Type}}</td>
+               
+               
+            </tr>
+            
+            {% endfor%}
+    </table>  -->
+<div class=" card  shadow p-3 text-black  rounded ">
+    <h2 class="card text-center bg-dark text-white">Search Result:</h2>
+
+    <div class="row mt-3">
+
+        {% for worker in formdata %}
+
+        <div class="col-md-4 mb-2">
+            <div class="card-header  text-center bg-info text-white">
+                <h4> {{worker.First_Name}} {{worker.Last_Name}}</h4>
+            </div>
+            <div class="card shadow p-3   text-black rounded" style="width:100%">
+
+                <div class="card-body bg-light">
+
+                    <p class="card-text"> Mobile Number <span style="padding-left: 11%;"> {{worker.Mobile}}</span></p>
+                    <p class="card-text">City/Village <span style="padding-left: 23%;"> {{worker.City}}</span></p>
+                    <p class="card-text">Worker Type <span style="padding-left: 19%;"> {{worker.Worker_Type}}</span></p>
+                    <p class="card-text">Rate Per Day <span style="padding-left: 19%;"> {{worker.Rate}}</span></p>
+                    <p class="card-text">Email Id <span style="padding-left: 29%;"> {{worker.Email}}</span></p>
+                    <p class="card-text"> Gender <span style="padding-left: 30%;"> {{worker.Gender}}</span> </p>
+
+                </div>
+                <div class="card-footer text-black bg-light">
+                    For more details please contact to worker
+                </div>
+            </div>
+        </div>
+        {% empty%}
+        <script>
+
+            swal({
+                title: "No Record Found",
+                text: "Please Go Back!",
+                icon: "success"
+            }).then(okay => {
+                if (okay) {
+                    window.location.href = "/";
+                }
+            });
+        </script>
+
+        {% endfor%}
+        <center>
+            <td><a href="/" class="btn btn-outline-primary mb-2">Back</a></td>
+        </center>
+
+        {% endblock%}

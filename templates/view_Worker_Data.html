@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+          <!-- Bootstrap CSS -->
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <title>Document</title>
+        <link rel="stylesheet" href="{%static 'css/bootstrap.css'%}">
+        <script src="{% static 'js/bootstrap.js'%}"></script>
+      
+        <script src="{% static 'js/bootstrap.js.map'%}"></script>
+        <script src="{% static 'js/bootstrap.min.js'%}"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        
+        
+     
+        </head>
+<body>
+  
+    <nav class="navbar navbar-expand-md navbar-light bg-info   mb-2">
+        <!-- Brand -->
+        
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse " id="collapsibleNavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="{% url 'admin_Logout' %}">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="{% url 'register' %}">Add Worker</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold " href="#">Delete Worker</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="/">Home</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    
+    <table class="table table-striped table--bordered table-sm">
+        <thead class="thead-dark">
+            <tr>
+            
+              
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Id</th>
+               
+                <th>Mobile Number</th>
+                <th>Gender</th>
+                <th>City</th>
+                <th>Worker Type</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+       
+
+        {% for worker in worker_Data %}
+            <tr>
+                <td>{{worker.First_Name}}</td>
+                <td>{{worker.Last_Name}}</td>
+                <td>{{worker.Email}}</td>
+    
+                <td>{{worker.Mobile}}</td>
+                <td>{{worker.Gender}}</td>
+                <td>{{worker.City}}</td>
+                <td>{{worker.Worker_Type}}</td>
+               
+                <td><a href="/delete_Worker/{{worker.id}}" onclick="" class="btn btn-danger">Delete</a></td>
+            </tr>
+            {% endfor%}
+    </table>  
+    {% if msg%}
+    <script>
+    
+    swal({ title: "{{msg}}",
+ text: "You Clicked the Button!",
+ icon: "success"}).then(okay => {
+   if (okay) {
+    window.location.href = "/view_Worker_Data";
+  }
+});
+</script>
+ {%endif%}
+   
+</body>
+</html>

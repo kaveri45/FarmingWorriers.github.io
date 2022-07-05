@@ -1,0 +1,255 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Document</title>
+  <link rel="stylesheet" href="{%static 'css/bootstrap.css'%}">
+  <script src="{% static 'js/bootstrap.js'%}"></script>
+
+  <script src="{% static 'js/bootstrap.js.map'%}"></script>
+  <script src="{% static 'js/bootstrap.min.js'%}"></script>
+  <style>
+    body {
+      background: #D0D8DB;
+
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    .text {
+      color: white;
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      white-space: nowrap;
+    }
+
+  
+
+    .svg-inline--fa {
+      vertical-align: -0.200em;
+    }
+
+    .rounded-social-buttons {
+      text-align: center;
+    }
+
+    .rounded-social-buttons .social-button {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      width: 3.125rem;
+      height: 3.125rem;
+      border: 0.125rem solid transparent;
+      padding: 0;
+      text-decoration: none;
+      text-align: center;
+      color: #fefefe;
+      font-size: 1.5625rem;
+      font-weight: normal;
+      line-height: 2em;
+      border-radius: 1.6875rem;
+      transition: all 0.5s ease;
+      margin-right: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .rounded-social-buttons .social-button:hover,
+    .rounded-social-buttons .social-button:focus {
+      -webkit-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+
+    .rounded-social-buttons .fa-twitter,
+    .fa-facebook-f,
+    .fa-linkedin,
+    .fa-youtube,
+    .fa-instagram {
+      font-size: 25px;
+    }
+
+    .rounded-social-buttons .social-button.facebook {
+      background: #3b5998;
+    }
+
+    .rounded-social-buttons .social-button.facebook:hover,
+    .rounded-social-buttons .social-button.facebook:focus {
+      color: #3b5998;
+      background: #fefefe;
+      border-color: #3b5998;
+    }
+
+    .rounded-social-buttons .social-button.twitter {
+      background: #55acee;
+    }
+
+    .rounded-social-buttons .social-button.twitter:hover,
+    .rounded-social-buttons .social-button.twitter:focus {
+      color: #55acee;
+      background: #fefefe;
+      border-color: #55acee;
+    }
+
+    .rounded-social-buttons .social-button.linkedin {
+      background: #007bb5;
+    }
+
+    .rounded-social-buttons .social-button.linkedin:hover,
+    .rounded-social-buttons .social-button.linkedin:focus {
+      color: #007bb5;
+      background: #fefefe;
+      border-color: #007bb5;
+    }
+
+    .rounded-social-buttons .social-button.youtube {
+      background: #bb0000;
+    }
+
+    .rounded-social-buttons .social-button.youtube:hover,
+    .rounded-social-buttons .social-button.youtube:focus {
+      color: #bb0000;
+      background: #fefefe;
+      border-color: #bb0000;
+    }
+
+    .rounded-social-buttons .social-button.instagram {
+      background: #125688;
+    }
+
+    .rounded-social-buttons .social-button.instagram:hover,
+    .rounded-social-buttons .social-button.instagram:focus {
+      color: #125688;
+      background: #fefefe;
+      border-color: #125688;
+    }
+    
+    #navBarSearchForm
+    {
+      width:250px ;
+    }
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark py-3">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/">Home</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/admin_login">Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/worker_Login">FarmWorker</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us</a>
+        </li>
+      </ul>
+     
+    
+      
+
+       
+      <form method="get" action="/search" class="navbar-nav ml-auto "  >
+          <select class="form-control mr-sm-2  " type="text" id="navBarSearchForm" placeholder="Search " name="City" >
+            <option value=" " disabled selected>Select City </option>
+            <option value="Nashik">Nashik</option>
+            <option value="Nagar">Nagar</option>
+            <option value="Pune">Pune</option>
+            <option value="Yeola">Yeola</option>
+          </select>
+        
+          <select  class="form-control mr-sm-1 "  id="navBarSearchForm" placeholder="Search" name="Worker_Type">
+            <option value=" " disabled selected>Select Worker Type</option>
+            <option value="नागरणी">नागरणी</option>
+            <option value="खुरपणी">खुरपणी</option>
+            <option value="पेरणी">पेरणी</option>
+            <option value="फवारणी">फवारणी</option>
+              <option value="कापुस वेचणी">कापुस वेचणी</option>
+          </select> 
+        
+     
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+    </div>
+  </nav>
+
+  {% block content%}
+  {% endblock %}
+  
+
+
+  <!-- Wrapper for carousel items -->
+
+
+  
+  
+
+  
+  <!--Image Slider-->
+
+  
+
+
+  <!-- Footer -->
+  <div class="container "></div>
+  <footer class="page-footer  font-small bg-dark text-white stylish-color-dark pt-4">
+
+    <!-- Footer Elements -->
+
+
+    <!-- Social buttons -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+      integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+      crossorigin="anonymous"></script>
+
+
+    <div class="rounded-social-buttons container">
+      <a class="social-button facebook" href="https://www.facebook.com/" target="_blank"><i
+          class="fab fa-facebook-f"></i></a>
+      <a class="social-button twitter" href="https://www.twitter.com/" target="_blank"><i
+          class="fab fa-twitter"></i></a>
+      <a class="social-button linkedin" href="https://www.linkedin.com/" target="_blank"><i
+          class="fab fa-linkedin"></i></a>
+      <a class="social-button youtube" href="https://www.youtube.com/" target="_blank"><i
+          class="fab fa-youtube"></i></a>
+      <a class="social-button instagram" href="https://www.instagram.com/" target="_blank"><i
+          class="fab fa-instagram"></i></a>
+    </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2021 Copyright:
+      <a href="#"> Farming Worriers</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+
+</body>
+
+</html>
