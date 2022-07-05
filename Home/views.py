@@ -17,7 +17,7 @@ def admin_login(request):
         password=request.POST['password']
       
 
-        if username=='root123@gmail.com' and password=='root':
+        if username=='root@123.com' and password=='root':
            request.session['username']=username 
            return redirect('register')
            
